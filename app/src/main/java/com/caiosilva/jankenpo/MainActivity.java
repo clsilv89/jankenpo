@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public void optionSelected(String userChoice) {
 
         ImageView appChoice = findViewById(R.id.appChoiceImageView);
+        TextView result = findViewById(R.id.playerResult);
 
         System.out.println(userChoice);
 
@@ -53,26 +55,43 @@ public class MainActivity extends AppCompatActivity {
 
         switch (escolhaApp) {
             case "Pedra":
-
+                appChoice.setImageResource(R.drawable.pedra);
                 break;
             case "Papel":
+                appChoice.setImageResource(R.drawable.papel);
                 break;
             case "Tesoura":
+                appChoice.setImageResource(R.drawable.tesoura);
                 break;
+        }
+
+        if((escolhaApp.equals("Pedra") && userChoice.equals("Tesoura")) ||
+                (escolhaApp.equals("Papel") && userChoice.equals("Pedra")) ||
+                (escolhaApp.equals("Tesoura") && userChoice.equals("Papel"))) {
+            result.setText(R.string.result_lost);
+            System.out.println("App Ganhou");
+        } else if((escolhaApp.equals( "Tesoura") && userChoice.equals("Pedra")) ||
+                (escolhaApp.equals("Papel") && userChoice.equals("Tesoura")) ||
+                (escolhaApp.equals("Pedra") && userChoice.equals("Papel"))) {
+            result.setText(R.string.result_win);
+            System.out.println("Jogador Ganhou");
+        } else {
+            System.out.println("Empate");
+            result.setText(R.string.result_draw);
         }
 
         System.out.println("App escolheu " + escolhaApp);
     }
 
     public void selectStone() {
-        this.optionSelected("Voce escolheu Pedra");
+        this.optionSelected("Pedra");
     }
 
     public void selectPaper() {
-        this.optionSelected("Voce escolheu Papel");
+        this.optionSelected("Papel");
     }
 
     public void selectScissors() {
-        this.optionSelected("Voce escolheu Tesoura");
+        this.optionSelected("Tesoura");
     }
 }
