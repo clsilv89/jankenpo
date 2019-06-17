@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">JanKenPo</string>
+    <string name="app_choice">Escolha do App</string>
+    <string name="player_result">Escolha sua opcao!</string>
+    <string name="result_lost">Voce Perdeu!</string>
+    <string name="result_win">Voce Ganhou!</string>
+    <string name="result_draw">Empatou!</string>
+
+</resources>
