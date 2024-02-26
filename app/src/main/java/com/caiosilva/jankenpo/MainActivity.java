@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
         switch (escolhaApp) {
             case "Pedra":
-
                 break;
             case "Papel":
                 break;
